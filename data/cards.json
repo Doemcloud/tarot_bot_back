@@ -1,0 +1,12 @@
+{
+    "1": {
+        "name": "Карта 1",
+        "description": "Описание карты 1.",
+        "image": "cards/card1.jpg"
+    },
+    "2": {
+        "name": "Карта 2",
+        "description": "Описание карты 2.",
+        "image": "cards/card2.jpg"
+    }
+}

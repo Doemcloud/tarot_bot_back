@@ -1,0 +1,2 @@
+TOKEN = "7633643903:AAFGzjabsR6qvys1xU9yJH7mcBkJKDr1cI8"
+CHANNEL_USERNAME = "elizakaterinaschool"

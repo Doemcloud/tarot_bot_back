@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Таро Расклад</title>
+    <style>
+        .card {
+            width: 150px;
+            height: 250px;
+            background-color: #eee;
+            text-align: center;
+            margin: 10px;
+            display: inline-block;
+            cursor: pointer;
+        }
+        .card img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Случайный расклад карт Таро</h1>
+    <div id="cards-container">
+        {% for card_id, card in cards %}
+        <div class="card" onclick="flipCard('{{ card_id }}')">
+            <img src="{{ url_for('static', filename='cards/closed.png') }}" alt="Закрытая карта">
+            <p>{{ card[1]["name"] }}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    <script>
+        function flipCard(cardId) {
+            fetch('/get_card_description', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ "card_id": cardId })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    alert(data.error);
+                } else {
+                    alert("Карта: " + data.name + "\nОписание: " + data.description);
+                    // Можно здесь обновить картинку и описание карты на странице
+                }
+            });
+        }
+    </script>
+</body>
+</html>
