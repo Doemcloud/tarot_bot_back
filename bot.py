@@ -58,7 +58,7 @@ async def start_command(message: Message):
     # Кнопка для перехода в Web App с картами
     web_app_button = InlineKeyboardButton(
         text="Перейти в веб-приложение",
-        web_app=types.WebAppInfo(url="https://9496-195-133-88-107.ngrok-free.app")  # Передаем через именованный аргумент
+        web_app=types.WebAppInfo(url="https://24tarot.ru")  # Передаем через именованный аргумент
     )
     keyboard = InlineKeyboardMarkup(inline_keyboard=[[web_app_button]])
 
